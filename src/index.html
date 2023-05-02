@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2e46d3026c.js" crossorigin="anonymous"></script>
     <title>To do List</title>
 </head>
 <body>
     <form> 
+        <div class="header">
+            <h2>Today´s To Do</h2>
+            <i class="fa-solid fa-arrows-rotate fa-rotate-90" style="color: #788191;"></i>
+        </div>
         <ul class="todo__list">
-        </ul>       
+            <label for="addToTheList" aria-labelledby="addToTheList"></label>
+            <input class="add" type="text" name="addToTheList" placeholder="Add to your list...">
+        </ul>
+        <button class="clear">Clear all completed</button>       
     </form>
 </body>
 </html>

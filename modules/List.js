@@ -5,12 +5,12 @@ const list = [
     description: 'Do the dishes'
   },
   {
-    index: 0,
+    index: 1,
     complete: false,
     description: 'Study Maths'
   },
   {
-    index: 0,
+    index: 2,
     complete: true,
     description: 'Do exercises'
   }
@@ -23,8 +23,13 @@ const toDoList = () => {
   list.forEach((parameter,index) => {
     const toDo = document.createElement('li');
     toDo.innerHTML = `
-      <input type="checkbox" > ${list[index].description} 
-      <button class="button remove-btn" data-list-index=${index}>Delete</button> 
+      <span>
+        <label for="name${list[index].index}"><label> 
+        <input name="name${list[index].index}" type="checkbox">
+        <p>${list[index].description}</p>             
+      </span>
+        
+      <button class="button remove-btn" data-list-index=${index}><i class="fa-regular fa-trash-can" style="color: #7c889c;"></i></button> 
       `;
       checkList.push(toDo)
   });
