@@ -12,11 +12,11 @@ body {
 form {
   width: 80%;
   margin: 0 auto;
-  background-color: #fff;  
+  background-color: #fff;
 }
 
-h2 {
-  font-size: 1.1rem;  
+h1 {
+  font-size: 1.1rem;
   display: inline;
   margin-top: 10px;
   height: 20px;
@@ -29,13 +29,12 @@ h2 {
 }
 
 .add {
-  width: 100%;  
+  width: 100%;
   border: solid 1px rgb(200, 187, 187);
   height: 40px;
 }
 
 li {
-
   width: 100%;
   padding: 0 1em;
   display: flex;
@@ -68,7 +67,7 @@ p {
 .clear {
   width: 100%;
   height: 40px;
-  border: solid 1px rgb(200, 187, 187) ;
+  border: solid 1px rgb(200, 187, 187);
   color: rgb(156, 143, 143);
 }
 
@@ -76,11 +75,14 @@ p {
   cursor: pointer;
   text-decoration: underline;
 }
-.remove-btn:hover, .fa-arrows-rotate:hover {
-  cursor: pointer;  
-}
 
 .fa-arrows-rotate {
-margin-top: 10px;
-font-size: 1.2rem;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #788191;
+}
+
+.remove-btn:hover,
+.fa-arrows-rotate:hover {
+  cursor: pointer;
 }
