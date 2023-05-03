@@ -1,40 +1,57 @@
-const list = [
+const arrList = [
   {
     index: 0,
     complete: true,
     description: 'Do the dishes',
   },
-  {
-    index: 1,
-    complete: false,
-    description: 'Study Maths',
-  },
-  {
-    index: 2,
-    complete: true,
-    description: 'Do exercises',
-  },
 ];
 
-const toDoList = () => {
-  const checkList = [];
+class Todo {
+  constructor(value) {
+    this.value = value;
+  }
+}
 
-  const main = document.querySelector('.todo__list');
-  list.forEach((parameter, index) => {
-    const toDo = document.createElement('li');
-    toDo.innerHTML = `
+const mainList = document.querySelector('.todo__list');
+
+class TodoList {
+  constructor() {
+    this.list = [];
+  }
+
+  add(value) {
+    const newTodo = new Todo(value);
+    this.list.push(newTodo);
+  }
+
+  remove(index) {
+    this.list.splice(index,1);    
+  }
+
+  displayList() {
+    mainList.innerHTML = this.list.map(
+      (Todo, index) => `
       <span>
         <label for="name${list[index].index}"><label> 
         <input name="name${list[index].index}" type="checkbox">
         <p>${list[index].description}</p>             
       </span>
         
-      <button class="button remove-btn" data-list-index=${index}><i class="fa-regular fa-trash-can" style="color: #7c889c;"></i></button> 
-      `;
-    checkList.push(toDo);
-  });
+      <button class="button remove-btn" data-list-index=${index}><i class="fa-regular fa-trash-can" style="color: #7c889c;"></i></button>      
+      `,
+    )
+    .join('');    
+  }
 
-  main.append(...checkList);
-};
+  addRemoveBtnListeners() {
+    mainList.addEventListener('click', (event) => {
+      if (event.target.classList.contains('remove-btn')) {
+        const index = event.target.dataset.listIndex;
+        this.remove(index);
+        this.displayList();
+      }
+    });
+  }
+}
 
-export default toDoList;
+export default TodoList;
