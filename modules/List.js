@@ -56,9 +56,27 @@ class TodoList {
         const index = event.target.dataset.listIndex;
         this.remove(index);
       }
+    });  
+
+    mainList.addEventListener('click', (event) => {
+      if (event.target.classList.contains('fa-trash-can')) {
+        const button = event.target.closest('.remove-btn');
+        button.click();
+      }
     });
-    
   }
+
+enterEvent() {
+  document.addEventListener('keyup', (event) => {
+    if (event.code === 'Enter') {
+      if (event.target.classList.contains('taskElement')) {
+        const newText = event.target.value;
+        const index = event.target.dataset.taskIndex;
+        this.edit(index, newText);
+      }
+    }
+  });
+}
 }
 
 export default TodoList;
