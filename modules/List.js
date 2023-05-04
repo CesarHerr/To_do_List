@@ -1,9 +1,4 @@
-class Todo {
-  constructor(text, complete = false) {
-    this.text = text;
-    this.complete = false;
-  }
-}
+import Todo from "./todo";
 
 const mainList = document.querySelector('.tasks');
 
