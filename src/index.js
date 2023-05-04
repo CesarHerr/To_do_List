@@ -1,5 +1,5 @@
 import './style.css';
-import TodoList from '../modules/List.js';
+import TodoList from '../modules/crud';
 
 let toDoList = new TodoList();
 console.log(toDoList)
@@ -23,4 +23,3 @@ document.addEventListener("keyup", (event) => {
 
 toDoList.displayList();
 toDoList.addRemoveBtnListeners();
-

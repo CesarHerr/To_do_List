@@ -36,7 +36,7 @@ class TodoList {
           <span>           
             <input type="checkbox">
             <label for="name${index}"></label>
-            <input name="name${index}" class="taskElement" value="${todo.text}"></input>             
+            <input name="name${index}" class="taskElement" data-task-index="${index}" value="${todo.text}"></input>             
           </span>          
           <button class="button remove-btn" data-list-index="${index}"><i class="fa-regular fa-trash-can" style="color: #a0a4ac;"></i></button>      
         </li>
@@ -51,7 +51,7 @@ class TodoList {
         const index = event.target.dataset.listIndex;
         this.remove(index);
       }
-    });  
+    });    
 
     mainList.addEventListener('click', (event) => {
       if (event.target.classList.contains('fa-trash-can')) {
@@ -59,19 +59,19 @@ class TodoList {
         button.click();
       }
     });
-  }
+  }       
 
-enterEvent() {
-  document.addEventListener('keyup', (event) => {
-    if (event.code === 'Enter') {
-      if (event.target.classList.contains('taskElement')) {
-        const newText = event.target.value;
-        const index = event.target.dataset.taskIndex;
-        this.edit(index, newText);
+  enterEvent() {
+    document.addEventListener('keyup', (event) => {
+      if (event.code === 'Enter') {
+        if (event.target.classList.contains('taskElement')) {
+          const newText = event.target.value;
+          const index = event.target.dataset.taskIndex;
+          this.edit(index, newText);
+        }
       }
-    }
-  });
-}
+    });
+  }
 }
 
 export default TodoList;
