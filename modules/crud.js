@@ -12,7 +12,7 @@ class TodoList {
 
   add(text) {
     const newTodo = new Todo(text);
-    newTodo.index = this.list.length;
+    newTodo.index = this.list.length + 1;
     this.list.push(newTodo);
     localStorage.setItem('list', JSON.stringify(this.list));
     this.indexes();
@@ -51,7 +51,7 @@ class TodoList {
 
   indexes() {
     this.list.forEach((todo, index) => {
-      todo.index = index;
+      todo.index = index + 1;
     });
   }
 
