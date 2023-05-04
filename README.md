@@ -166,9 +166,9 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Adding and Removing Items.
-- Marking a Selected Item as Complete.
-- Removing all items marked as complete at once.
+- Deploy.
+- Add event listeners to list items (dragstart, dragover, drop).
+- Update items object's values for index key upon user actions.
 
 
 
