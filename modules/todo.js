@@ -1,5 +1,5 @@
 class Todo {
-  constructor(text, complete = false) {
+  constructor(text) {
     this.text = text;
     this.complete = false;
   }

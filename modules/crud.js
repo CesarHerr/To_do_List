@@ -1,11 +1,11 @@
-import Todo from "./todo";
+import Todo from './todo.js';
 
 const mainList = document.querySelector('.tasks');
 
 class TodoList {
   constructor() {
     this.list = JSON.parse(localStorage.getItem('list')) || [];
-    this.displayList();    
+    this.displayList();
     this.enterEvent();
   }
 
@@ -40,7 +40,7 @@ class TodoList {
           </span>          
           <button class="button remove-btn" data-list-index="${index}"><i class="fa-regular fa-trash-can" style="color: #a0a4ac;"></i></button>      
         </li>
-      `
+      `,
       )
       .join('');
   }
@@ -51,7 +51,7 @@ class TodoList {
         const index = event.target.dataset.listIndex;
         this.remove(index);
       }
-    });    
+    });
 
     mainList.addEventListener('click', (event) => {
       if (event.target.classList.contains('fa-trash-can')) {
@@ -59,7 +59,7 @@ class TodoList {
         button.click();
       }
     });
-  }       
+  }
 
   enterEvent() {
     document.addEventListener('keyup', (event) => {
