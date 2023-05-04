@@ -7,17 +7,21 @@ class TodoList {
     this.list = JSON.parse(localStorage.getItem('list')) || [];
     this.displayList();
     this.enterEvent();
+    this.indexes();
   }
 
   add(text) {
     const newTodo = new Todo(text);
+    newTodo.index = this.list.length;
     this.list.push(newTodo);
     localStorage.setItem('list', JSON.stringify(this.list));
+    this.indexes();
     this.displayList();
   }
 
   remove(index) {
     this.list.splice(index, 1);
+    this.indexes();
     localStorage.setItem('list', JSON.stringify(this.list));
     this.displayList();
   }
@@ -43,6 +47,12 @@ class TodoList {
       `,
       )
       .join('');
+  }
+
+  indexes() {
+    this.list.forEach((todo, index) => {
+      todo.index = index;
+    });
   }
 
   addRemoveBtnListeners() {
