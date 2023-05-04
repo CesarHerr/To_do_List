@@ -17,38 +17,41 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
+
+
+
 // complete always is false if refresh the page
-toDoList.list.forEach((todo, id) => {
-  todo.complete = false;
-  localStorage.setItem('list', JSON.stringify(toDoList.list))
-});
+  toDoList.list.forEach((todo, id) => {
+    todo.complete = false;
+    localStorage.setItem('list', JSON.stringify(toDoList.list))
+  });
 
 //checkbox true-false
 document.addEventListener('change', (e) => {
-if (e.target.classList.contains('checkbox')) {
-  
-  const { index } = e.target.dataset;
-  const db = JSON.parse(localStorage.getItem('list'));
-  toDoList.list[index].complete = !db[index].complete;
-  localStorage.setItem('list', JSON.stringify(toDoList.list));     
-  const taskDescription = document.querySelectorAll('.taskElement');      
-  taskDescription[index].classList.toggle('line-through');       
-    
-  }  
-});
-
-// clear all button
-const clearBtn = document.querySelector('.clear');
-  
-clearBtn.addEventListener('click', (e) => {
-  const taskDescription = document.querySelectorAll('.taskElement');    
-  taskDescription.forEach(element => {
-    if(element.classList.contains('line-through')){
-    const index = element.dataset.taskIndex;
-    toDoList.remove(index);      
+  if (e.target.classList.contains('checkbox')) {
+    const { index } = e.target.dataset;
+    const db = JSON.parse(localStorage.getItem('list'));
+    console.log(db);
+    toDoList.list[index].complete = !db[index].complete;
+    localStorage.setItem('list', JSON.stringify(toDoList.list));     
+    const taskDescription = document.querySelectorAll('.taskElement');      
+    taskDescription[index].classList.toggle('line-through');
     }
   });
-}); 
+
+  
+ // clear all button
+  const clearBtn = document.querySelector('.clear');
+  
+  clearBtn.addEventListener('click', (e) => {
+    const taskDescription = document.querySelectorAll('.taskElement');    
+    taskDescription.forEach(element => {
+      if(element.classList.contains('line-through')){
+      const index = element.dataset.taskIndex;
+      toDoList.remove(index);      
+      }
+    });
+  }); 
 
 toDoList.displayList();
 toDoList.addRemoveBtnListeners();

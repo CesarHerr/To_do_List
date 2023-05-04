@@ -12,12 +12,12 @@ body {
 div {
   width: 80%;
   margin: 4em auto;
-  background-color: #fff;  
+  background-color: #fff;
 }
 
 .container {
   border: solid 2px rgb(213, 169, 169);
-  border-radius: 1rem;   
+  border-radius: 1rem;
 }
 
 h1 {
@@ -36,7 +36,7 @@ h1 {
 .add {
   width: 100%;
   border: solid 1px rgb(200, 187, 187);
-  height: 40px;  
+  height: 40px;
 }
 
 li {
@@ -93,10 +93,6 @@ p {
   color: #788191;
 }
 
-.hidden {
-  display: none;
-}
-
 .remove-btn:hover,
 .fa-arrows-rotate:hover {
   cursor: pointer;
@@ -111,7 +107,7 @@ p {
   outline: 0;
 }
 
-.line-through  {
+.line-through {
   text-decoration: line-through;
   font-size: 1rem;
   color: red;

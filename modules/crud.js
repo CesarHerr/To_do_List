@@ -38,7 +38,7 @@ class TodoList {
         (todo, index) => `
         <li>
           <span>           
-            <input type="checkbox" data-task="${index}>
+          <input type="checkbox" class="checkbox" data-index="${index}">
             <label for="name${index}"></label>
             <input name="name${index}" class="taskElement" data-task-index="${index}" value="${todo.text}"></input>             
           </span>          
