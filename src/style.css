@@ -9,7 +9,7 @@ body {
   background-color: rgb(220, 223, 223);
 }
 
-form {
+div {
   width: 80%;
   margin: 0 auto;
   background-color: #fff;
@@ -44,6 +44,10 @@ li {
   border-bottom: solid 1px rgb(200, 187, 187);
 }
 
+span {
+  width: 100%;
+}
+
 li button {
   background: none;
   border: none;
@@ -56,7 +60,6 @@ li button {
 
 .check {
   padding-left: 1em;
-  background-color: aquamarine;
 }
 
 p {
@@ -78,6 +81,8 @@ p {
 
 .fa-arrows-rotate {
   margin-top: 10px;
+  position: absolute;
+  right: 12%;
   font-size: 1.2rem;
   color: #788191;
 }
@@ -85,4 +90,11 @@ p {
 .remove-btn:hover,
 .fa-arrows-rotate:hover {
   cursor: pointer;
+}
+
+.taskElement {
+  height: 30px;
+  width: 90%;
+  border: none;
+  margin-left: 5px;
 }
