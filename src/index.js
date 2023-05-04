@@ -17,5 +17,25 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
+// complete always is false if refresh the page
+toDoList.list.forEach((todo, id) => {
+  todo.complete = false;
+  localStorage.setItem('list', JSON.stringify(toDoList.list))
+});
+
+//checkbox true-false
+document.addEventListener('change', (e) => {
+if (e.target.classList.contains('checkbox')) {
+  
+  const { index } = e.target.dataset;
+  const db = JSON.parse(localStorage.getItem('list'));
+  toDoList.list[index].complete = !db[index].complete;
+  localStorage.setItem('list', JSON.stringify(toDoList.list));     
+  const taskDescription = document.querySelectorAll('.taskElement');      
+  taskDescription[index].classList.toggle('line-through');       
+    
+  }  
+});
+
 toDoList.displayList();
 toDoList.addRemoveBtnListeners();
