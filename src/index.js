@@ -37,5 +37,18 @@ if (e.target.classList.contains('checkbox')) {
   }  
 });
 
+// clear all button
+const clearBtn = document.querySelector('.clear');
+  
+clearBtn.addEventListener('click', (e) => {
+  const taskDescription = document.querySelectorAll('.taskElement');    
+  taskDescription.forEach(element => {
+    if(element.classList.contains('line-through')){
+    const index = element.dataset.taskIndex;
+    toDoList.remove(index);      
+    }
+  });
+}); 
+
 toDoList.displayList();
 toDoList.addRemoveBtnListeners();
