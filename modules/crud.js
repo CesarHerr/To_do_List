@@ -23,7 +23,7 @@ class TodoList {
     this.list.splice(index, 1);
     this.indexes();
     localStorage.setItem('list', JSON.stringify(this.list));
-    this.displayList();
+    window.location.reload();
   }
 
   edit(index, newText) {
