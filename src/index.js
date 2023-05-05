@@ -39,9 +39,7 @@ document.addEventListener('change', (e) => {
 const clearBtn = document.querySelector('.clear');
 
 clearBtn.addEventListener('click', () => {
-  
-  console.log(toDoList.list.filter(element => element.complete !== true))
-  toDoList.list = toDoList.list.filter(element => element.complete !== true);
+  toDoList.list = toDoList.list.filter((element) => element.complete !== true);
   localStorage.setItem('list', JSON.stringify(toDoList.list));
   window.location.reload();
 });
