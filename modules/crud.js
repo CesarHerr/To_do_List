@@ -23,7 +23,7 @@ class TodoList {
     this.list.splice(index, 1);
     this.indexes();
     localStorage.setItem('list', JSON.stringify(this.list));
-    window.location.reload();
+    this.displayList();
   }
 
   edit(index, newText) {
@@ -36,8 +36,8 @@ class TodoList {
     mainList.innerHTML = this.list
       .map(
         (todo, index) => `
-        <li>
-          <span>           
+        <li class="taskElement_master">
+          <span >           
           <input type="checkbox" class="checkbox" data-index="${index}">
             <label for="name${index}"></label>
             <input name="name${index}" class="taskElement" data-task-index="${index}" value="${todo.text}"></input>             

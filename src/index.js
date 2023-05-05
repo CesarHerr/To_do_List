@@ -39,13 +39,11 @@ document.addEventListener('change', (e) => {
 const clearBtn = document.querySelector('.clear');
 
 clearBtn.addEventListener('click', () => {
-  const taskDescription = document.querySelectorAll('.taskElement');
-  taskDescription.forEach((element) => {
-    if (element.classList.contains('line-through')) {
-      const index = element.dataset.taskIndex;
-      toDoList.remove(index);
-    }
-  });
+  
+  console.log(toDoList.list.filter(element => element.complete !== true))
+  toDoList.list = toDoList.list.filter(element => element.complete !== true);
+  localStorage.setItem('list', JSON.stringify(toDoList.list));
+  window.location.reload();
 });
 
 toDoList.displayList();
