@@ -36,13 +36,13 @@ class TodoList {
     mainList.innerHTML = this.list
       .map(
         (todo, index) => `
-        <li>
-          <span>           
-            <input type="checkbox">
+        <li class="taskElement_master">
+          <span >           
+          <input type="checkbox" class="checkbox" data-index="${index}">
             <label for="name${index}"></label>
             <input name="name${index}" class="taskElement" data-task-index="${index}" value="${todo.text}"></input>             
           </span>          
-          <button class="button remove-btn" data-list-index="${index}"><i class="fa-regular fa-trash-can" style="color: #a0a4ac;"></i></button>      
+          <button class="button remove-btn" data-list-index="${index}"><i class="fa-regular fa-trash-can"></i></button>      
         </li>
       `,
       )
