@@ -9,7 +9,7 @@ body {
   background-color: rgb(220, 223, 223);
 }
 
-div {
+section {
   width: 80%;
   margin: 4em auto;
   background-color: #fff;
@@ -53,11 +53,6 @@ span {
   width: 100%;
 }
 
-li button {
-  background: none;
-  border: none;
-}
-
 .add::placeholder {
   font-style: italic;
   padding-left: 1em;
@@ -93,8 +88,13 @@ p {
   color: #788191;
 }
 
+.fa-trash-can {
+  font-size: 1.2rem;
+}
+
 .remove-btn:hover,
-.fa-arrows-rotate:hover {
+.fa-arrows-rotate:hover,
+.fa-trash-can:hover {
   cursor: pointer;
 }
 
@@ -111,8 +111,4 @@ p {
   text-decoration: line-through;
   font-size: 1rem;
   color: red;
-}
-
-.fa-trash-can {
-  font-size: 1.2rem;
 }

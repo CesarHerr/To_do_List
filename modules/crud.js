@@ -5,9 +5,7 @@ const mainList = document.querySelector('.tasks');
 class TodoList {
   constructor() {
     this.list = JSON.parse(localStorage.getItem('list')) || [];
-    this.displayList();
     this.enterEvent();
-    this.indexes();
   }
 
   add(text) {
@@ -15,8 +13,6 @@ class TodoList {
     newTodo.index = this.list.length + 1;
     this.list.push(newTodo);
     localStorage.setItem('list', JSON.stringify(this.list));
-    this.indexes();
-    this.displayList();
   }
 
   remove(index) {
@@ -42,7 +38,7 @@ class TodoList {
             <label for="name${index}"></label>
             <input name="name${index}" class="taskElement" data-task-index="${index}" value="${todo.text}"></input>             
           </span>          
-          <button class="button remove-btn" data-list-index="${index}"><i class="fa-regular fa-trash-can"></i></button>      
+          <i class="fa-regular fa-trash-can" data-list-index="${index}"></i>      
         </li>
       `,
       )
@@ -57,16 +53,9 @@ class TodoList {
 
   addRemoveBtnListeners() {
     mainList.addEventListener('click', (event) => {
-      if (event.target.classList.contains('remove-btn')) {
+      if (event.target.classList.contains('fa-trash-can')) {
         const index = event.target.dataset.listIndex;
         this.remove(index);
-      }
-    });
-
-    mainList.addEventListener('click', (event) => {
-      if (event.target.classList.contains('fa-trash-can')) {
-        const button = event.target.closest('.remove-btn');
-        button.click();
       }
     });
   }
