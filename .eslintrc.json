@@ -10,6 +10,7 @@
     "sourceType": "module"
   },
   "extends": ["airbnb-base"],
+  
   "rules": {
     "no-shadow": "off",
     "no-param-reassign": "off",
@@ -21,5 +22,10 @@
   "ignorePatterns": [
     "dist/",
     "build/"
-  ]
+  ],
+  "ignoreFiles": [
+  "coverage/**.css",
+  "coverage/**/**.css",
+  "lcov-report/**.css"
+  ],
 }
