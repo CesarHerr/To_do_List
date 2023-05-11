@@ -22,10 +22,5 @@
   "ignorePatterns": [
     "dist/",
     "build/"
-  ],
-  "ignoreFiles": [
-  "coverage/**.css",
-  "coverage/**/**.css",
-  "lcov-report/**.css"
-  ],
+  ]
 }
