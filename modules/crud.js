@@ -19,13 +19,11 @@ class TodoList {
     this.list.splice(index, 1);
     this.indexes();
     localStorage.setItem('list', JSON.stringify(this.list));
-    this.displayList();
   }
 
   edit(index, newText) {
     this.list[index].text = newText;
     localStorage.setItem('list', JSON.stringify(this.list));
-    this.displayList();
   }
 
   displayList() {
@@ -56,6 +54,8 @@ class TodoList {
       if (event.target.classList.contains('fa-trash-can')) {
         const index = event.target.dataset.listIndex;
         this.remove(index);
+        localStorage.setItem('list', JSON.stringify(this.list));
+        this.displayList();
       }
     });
   }
@@ -67,6 +67,7 @@ class TodoList {
           const newText = event.target.value;
           const index = event.target.dataset.taskIndex;
           this.edit(index, newText);
+          this.displayList();
         }
       }
     });
