@@ -9,6 +9,7 @@ document.addEventListener('keyup', (event) => {
   if (event.code === 'Enter') {
     if (activity !== '') {
       toDoList.add(activity);
+      localStorage.setItem('list', JSON.stringify(toDoList.list));
       toDoList.displayList();
       document.querySelector('.add').value = '';
     }
