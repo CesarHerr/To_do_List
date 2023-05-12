@@ -16,8 +16,6 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
-// complete always is false if refresh the page
-
 toDoList.check();
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('checkbox')) {

@@ -34,7 +34,7 @@
 # 📖 [ To do List ] <a name="about-project"></a>
 
 
-**[To do List]** In this portfolio, you can find the work that I have been developing throughout my learning experience, and you can also find my contact information. In this time I started creating the toolbar and headlines sections, then I created the Work and About sections.
+**[To do List]** In this project, you can find the work that I have been developing throughout my learning experience.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -137,7 +137,7 @@ To run tests, run the following command:
 
 
 ```
-Not need it
+npm test
 
 ```
 
@@ -172,10 +172,8 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Deploy.
-- Add event listeners to list items (dragstart, dragover, drop).
-- Update items object's values for index key upon user actions.
-
+- Add a better Styles
+- Add event listeners to list items (dragstart, dragover).
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
