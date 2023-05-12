@@ -72,6 +72,38 @@ class TodoList {
       }
     });
   }
+
+  check() {
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('checkbox')) {
+        const { index } = e.target.dataset;
+        const db = JSON.parse(localStorage.getItem('list'));
+
+        this.list[index].complete = !db[index].complete;
+        localStorage.setItem('list', JSON.stringify(this.list));
+      }
+    });
+  }
+
+  clearAllButton() {
+    const clearBtn = document.querySelector('.clear');
+    clearBtn.addEventListener('click', () => {
+      this.deleteChecked();
+      window.location.reload();
+    });
+  }
+
+  deleteChecked() {
+    this.list = this.list.filter((element) => element.complete !== true);
+    localStorage.setItem('list', JSON.stringify(this.list));
+  }
+
+  CompletedFalse() {
+    this.list.forEach((todo) => {
+      todo.complete = false;
+      localStorage.setItem('list', JSON.stringify(this.list));
+    });
+  }
 }
 
 export default TodoList;

@@ -32,7 +32,6 @@ describe('Add task to the list', () => {
 });
 
 // Remove
-
 describe('Remove task to the list', () => {
   let toDoList;
   beforeEach(() => {
