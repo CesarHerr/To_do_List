@@ -1,7 +1,7 @@
 import './style.css';
 import TodoList from '../modules/crud.js';
 
-const toDoList = new TodoList();
+export const toDoList = new TodoList();
 
 document.addEventListener('keyup', (event) => {
   const activity = document.querySelector('.add').value;
@@ -17,31 +17,15 @@ document.addEventListener('keyup', (event) => {
 });
 
 // complete always is false if refresh the page
-toDoList.list.forEach((todo) => {
-  todo.complete = false;
-  localStorage.setItem('list', JSON.stringify(toDoList.list));
-});
 
-// checkbox true-false
-document.addEventListener('change', (e) => {
-  if (e.target.classList.contains('checkbox')) {
-    const { index } = e.target.dataset;
-    const db = JSON.parse(localStorage.getItem('list'));
 
-    toDoList.list[index].complete = !db[index].complete;
-    localStorage.setItem('list', JSON.stringify(toDoList.list));
-    document.querySelectorAll('.taskElement')[index].classList.toggle('line-through');
-  }
-});
 
-// clear all button
-const clearBtn = document.querySelector('.clear');
+toDoList.check();
+toDoList.crossOut();
+toDoList.clearAllButton();
+toDoList.CompletedFalse();
 
-clearBtn.addEventListener('click', () => {
-  toDoList.list = toDoList.list.filter((element) => element.complete !== true);
-  localStorage.setItem('list', JSON.stringify(toDoList.list));
-  window.location.reload();
-});
 
 toDoList.displayList();
 toDoList.addRemoveBtnListeners();
+

@@ -1,5 +1,6 @@
 import TodoList from '../modules/crud.js';
 
+
 // Add
 describe('Add task to the list', () => {
   let toDoList = [];
@@ -32,7 +33,6 @@ describe('Add task to the list', () => {
 });
 
 // Remove
-
 describe('Remove task to the list', () => {
   let toDoList;
   beforeEach(() => {
@@ -66,5 +66,5 @@ describe('Remove task to the list', () => {
 
     // Assert
     expect(toDoList.list).not.toContainEqual(taskObject);
-  });
+  });  
 });
