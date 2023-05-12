@@ -18,14 +18,10 @@ document.addEventListener('keyup', (event) => {
 
 // complete always is false if refresh the page
 
-
-
 toDoList.check();
 toDoList.crossOut();
 toDoList.clearAllButton();
 toDoList.CompletedFalse();
 
-
 toDoList.displayList();
 toDoList.addRemoveBtnListeners();
-

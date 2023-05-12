@@ -1,8 +1,8 @@
 import TodoList from '../modules/crud.js';
 
-//Edit
+// Edit
 describe('Edit a task from the list', () => {
-  let toDoList; 
+  let toDoList;
   beforeAll(() => {
     localStorage.clear();
     toDoList = new TodoList();
@@ -23,7 +23,7 @@ describe('Edit a task from the list', () => {
   });
 });
 
-//Update completed
+// Update completed
 describe('Update Completed', () => {
   let toDoList;
   beforeAll(() => {
@@ -37,9 +37,8 @@ describe('Update Completed', () => {
   });
 
   test('Checkbox click event handler', () => {
-
     // Arrange
-    const task = 'task 1'    
+    const task = 'task 1';
 
     const index = 0;
     const listItem = document.createElement('li');
@@ -57,23 +56,21 @@ describe('Update Completed', () => {
 
     toDoList.check();
     checkbox.click();
-    
+
     // Assert
     const updatedList = JSON.parse(localStorage.getItem('list'));
     expect(updatedList[index].complete).toEqual(true);
-        
-    toDoList.check(); 
-  
-  });  
+
+    toDoList.check();
+  });
 });
 
-//Completed all button
+// Completed all button
 describe('Completed all btn', () => {
-
   let toDoList;
   beforeAll(() => {
     localStorage.clear();
-    toDoList = new TodoList();    
+    toDoList = new TodoList();
   });
 
   afterEach(() => {
@@ -82,32 +79,30 @@ describe('Completed all btn', () => {
   });
 
   test('Delete checked box', () => {
-
     // Arrange
-    const task = 'task 1'    
+    const task = 'task 1';
 
     const index = 0;
     const listItem = document.createElement('li');
-    const checkbox = document.createElement('input');    
+    const checkbox = document.createElement('input');
 
     // Act
     checkbox.type = 'checkbox';
     checkbox.classList.add('checkbox');
     checkbox.dataset.index = index;
-    
+
     listItem.appendChild(checkbox);
     document.body.appendChild(listItem);
-    
+
     toDoList.add(task);
     localStorage.setItem('list', JSON.stringify(toDoList.list));
 
     toDoList.check();
     checkbox.click();
     toDoList.deleteChecked();
-    
+
     // Assert
-    
+
     expect(JSON.parse(localStorage.getItem('list'))).toEqual([]);
-    
-  });  
+  });
 });
