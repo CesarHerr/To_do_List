@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.93% </span>
+                <span class="strong">51.11% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/49</span>
+                <span class='fraction'>23/45</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">30% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/12</span>
+                <span class='fraction'>3/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.45% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>10/22</span>
+                <span class='fraction'>10/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.83% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/48</span>
+                <span class='fraction'>22/44</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -171,17 +171,7 @@
 <a name='L106'></a><a href='#L106'>106</a>
 <a name='L107'></a><a href='#L107'>107</a>
 <a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a>
-<a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L109'></a><a href='#L109'>109</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -264,16 +254,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -379,37 +359,27 @@ class TodoList {
       <span class="missing-if-branch" title="else path not taken" >E</span>if (e.target.classList.contains('checkbox')) {
         const { index } = e.target.dataset;
         const db = JSON.parse(localStorage.getItem('list'));
-  
+&nbsp;
         this.list[index].complete = !db[index].complete;
-        localStorage.setItem('list', JSON.stringify(this.list));        
+        localStorage.setItem('list', JSON.stringify(this.list));
       }
     });
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  cr</span>ossOut() {
-<span class="cstat-no" title="statement not covered" >    document.addEventListener('click', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (e.target.classList.contains('checkbox')) {</span>
-        const { index } = <span class="cstat-no" title="statement not covered" >e.target.dataset;</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      document.querySelectorAll('.taskElement')[index].classList.toggle('line-through');</span>
-      }
-      });    
-  }
-&nbsp;
-<span class="fstat-no" title="function not covered" >  cl</span>earAllButton () {
-  const clearBtn = <span class="cstat-no" title="statement not covered" >document.querySelector('.clear');</span>
-<span class="cstat-no" title="statement not covered" >  clearBtn.addEventListener('click', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    this.deleteChecked();</span>
-<span class="cstat-no" title="statement not covered" >  window.location.reload();</span>
-  });
+<span class="fstat-no" title="function not covered" >  cl</span>earAllButton() {
+    const clearBtn = <span class="cstat-no" title="statement not covered" >document.querySelector('.clear');</span>
+<span class="cstat-no" title="statement not covered" >    clearBtn.addEventListener('click', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      this.deleteChecked();</span>
+<span class="cstat-no" title="statement not covered" >      window.location.reload();</span>
+    });
   }
 &nbsp;
   deleteChecked() {
     this.list = this.list.filter((element) =&gt; element.complete !== true);
-  localStorage.setItem('list', JSON.stringify(this.list));
+    localStorage.setItem('list', JSON.stringify(this.list));
   }
-  
-<span class="fstat-no" title="function not covered" >  Co</span>mpletedFalse() { 
+&nbsp;
+<span class="fstat-no" title="function not covered" >  Co</span>mpletedFalse() {
 <span class="cstat-no" title="statement not covered" >    this.list.forEach(<span class="fstat-no" title="function not covered" >(t</span>odo) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      todo.complete = false;</span>
 <span class="cstat-no" title="statement not covered" >      localStorage.setItem('list', JSON.stringify(this.list));</span>
@@ -424,7 +394,7 @@ export default TodoList;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-12T14:45:50.516Z
+                at 2023-05-12T15:24:35.191Z
             </div>
         <script src="prettify.js"></script>
         <script>

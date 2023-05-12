@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683902750573" clover="3.2.0">
-  <project timestamp="1683902750574" name="All files">
-    <metrics statements="51" coveredstatements="25" conditionals="13" coveredconditionals="4" methods="23" coveredmethods="11" elements="87" coveredelements="40" complexity="0" loc="51" ncloc="51" packages="1" files="2" classes="2"/>
-    <file name="crud.js" path="/home/cesarherr/microverse/module2/To_do_List/modules/crud.js">
-      <metrics statements="48" coveredstatements="22" conditionals="12" coveredconditionals="3" methods="22" coveredmethods="10"/>
+<coverage generated="1683905075207" clover="3.2.0">
+  <project timestamp="1683905075207" name="All files">
+    <metrics statements="47" coveredstatements="25" conditionals="11" coveredconditionals="4" methods="21" coveredmethods="11" elements="79" coveredelements="40" complexity="0" loc="47" ncloc="47" packages="1" files="2" classes="2"/>
+    <file name="crud.js" path="C:\Users\Nyldr\OneDrive\Documentos\GitHub\To_do_List\modules\crud.js">
+      <metrics statements="44" coveredstatements="22" conditionals="10" coveredconditionals="3" methods="20" coveredmethods="10"/>
       <line num="3" count="2" type="stmt"/>
       <line num="7" count="9" type="cond" truecount="2" falsecount="0"/>
       <line num="8" count="9" type="stmt"/>
@@ -40,20 +40,16 @@
       <line num="82" count="4" type="stmt"/>
       <line num="83" count="4" type="stmt"/>
       <line num="89" count="0" type="stmt"/>
-      <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="90" count="0" type="stmt"/>
       <line num="91" count="0" type="stmt"/>
-      <line num="93" count="0" type="stmt"/>
-      <line num="99" count="0" type="stmt"/>
-      <line num="100" count="0" type="stmt"/>
-      <line num="101" count="0" type="stmt"/>
+      <line num="92" count="0" type="stmt"/>
+      <line num="97" count="1" type="stmt"/>
+      <line num="98" count="1" type="stmt"/>
       <line num="102" count="0" type="stmt"/>
-      <line num="107" count="1" type="stmt"/>
-      <line num="108" count="1" type="stmt"/>
-      <line num="112" count="0" type="stmt"/>
-      <line num="113" count="0" type="stmt"/>
-      <line num="114" count="0" type="stmt"/>
+      <line num="103" count="0" type="stmt"/>
+      <line num="104" count="0" type="stmt"/>
     </file>
-    <file name="todo.js" path="/home/cesarherr/microverse/module2/To_do_List/modules/todo.js">
+    <file name="todo.js" path="C:\Users\Nyldr\OneDrive\Documentos\GitHub\To_do_List\modules\todo.js">
       <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <line num="3" count="7" type="stmt"/>
       <line num="4" count="7" type="stmt"/>

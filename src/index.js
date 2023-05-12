@@ -1,7 +1,7 @@
 import './style.css';
 import TodoList from '../modules/crud.js';
 
-export const toDoList = new TodoList();
+const toDoList = new TodoList();
 
 document.addEventListener('keyup', (event) => {
   const activity = document.querySelector('.add').value;
@@ -18,14 +18,16 @@ document.addEventListener('keyup', (event) => {
 
 // complete always is false if refresh the page
 
-
-
 toDoList.check();
-toDoList.crossOut();
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('checkbox')) {
+    const { index } = e.target.dataset;
+
+    document.querySelectorAll('.taskElement')[index].classList.toggle('line-through');
+  }
+});
 toDoList.clearAllButton();
 toDoList.CompletedFalse();
 
-
 toDoList.displayList();
 toDoList.addRemoveBtnListeners();
-
