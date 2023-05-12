@@ -78,9 +78,9 @@ class TodoList {
       if (e.target.classList.contains('checkbox')) {
         const { index } = e.target.dataset;
         const db = JSON.parse(localStorage.getItem('list'));
-
+  
         this.list[index].complete = !db[index].complete;
-        localStorage.setItem('list', JSON.stringify(this.list));
+        localStorage.setItem('list', JSON.stringify(this.list));        
       }
     });
   }
@@ -90,25 +90,25 @@ class TodoList {
       if (e.target.classList.contains('checkbox')) {
         const { index } = e.target.dataset;
 
-        document.querySelectorAll('.taskElement')[index].classList.toggle('line-through');
+      document.querySelectorAll('.taskElement')[index].classList.toggle('line-through');
       }
-    });
+      });    
   }
 
-  clearAllButton() {
-    const clearBtn = document.querySelector('.clear');
-    clearBtn.addEventListener('click', (e) => {
-      this.deleteChecked();
-      window.location.reload();
-    });
+  clearAllButton () {
+  const clearBtn = document.querySelector('.clear');
+  clearBtn.addEventListener('click', (e) => {
+    this.deleteChecked();
+  window.location.reload();
+  });
   }
 
   deleteChecked() {
     this.list = this.list.filter((element) => element.complete !== true);
-    localStorage.setItem('list', JSON.stringify(this.list));
+  localStorage.setItem('list', JSON.stringify(this.list));
   }
-
-  CompletedFalse() {
+  
+  CompletedFalse() { 
     this.list.forEach((todo) => {
       todo.complete = false;
       localStorage.setItem('list', JSON.stringify(this.list));
