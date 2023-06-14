@@ -89,7 +89,9 @@ p {
 }
 
 .fa-trash-can {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  width: 80px;
+  text-align: center;
 }
 
 .remove-btn:hover,
@@ -111,4 +113,21 @@ p {
   text-decoration: line-through;
   font-size: 1rem;
   color: red;
+}
+
+.hideTrash {
+  display: none;
+}
+
+.fa-ellipsis-vertical {
+  cursor: move;
+  cursor: grab;
+  font-size: 2rem;
+  width: 80px;
+  text-align: center;
+  background-color: aqua;
+}
+
+.fa-ellipsis-vertical:active {
+  cursor: grabbing;
 }
