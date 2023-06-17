@@ -115,10 +115,6 @@ p {
   color: red;
 }
 
-.hideTrash {
-  display: none;
-}
-
 .fa-ellipsis-vertical {
   cursor: move;
   cursor: grab;

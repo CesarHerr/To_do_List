@@ -30,54 +30,50 @@ class TodoList {
     mainList.innerHTML = this.list
       .map(
         (todo, index) => `
-        <li class="taskElement_master">
+        <li class="taskElement_master" data-list-index="${index}">
           <span >           
           <input type="checkbox" class="checkbox" data-index="${index}" aria-label="checkbox">            
           </input>           
             <input name="name${index}" class="taskElement " data-task-index="${index}" value="${todo.text}" aria-label="task element"/>           
           </span>  
-          <i class="fa-regular fa-trash-can hideTrash showTrash${index}" ></i>
-          <i class="fa-solid fa-ellipsis-vertical"></i>   
+          <i class="fa-solid fa-ellipsis-vertical icon" data-list-index="${index}"></i>   
         </li>
       `
       )
       .join("");
 
     const inputs = document.querySelectorAll(".taskElement");
+    const iconBtn = document.querySelectorAll(".icon");
+    const background = document.querySelectorAll(".taskElement_master");
 
-    inputs.forEach((list) => {
-      list.addEventListener("click", (event) => {
-        if (event.target.classList.contains("taskElement")) {
-          list.classList.toggle("selected");
-          const index = event.target.dataset.taskIndex;
-          const trash = document.querySelector(`.showTrash${index}`);
+    mainList.addEventListener("click", (event) => {
+      if (!event.target.classList.contains("fa-trash-can")) {
+        inputs.forEach((input) => {
+          input.style.backgroundColor = "transparent";
+        });
+        iconBtn.forEach((icon) => {
+          icon.classList.remove("fa-trash-can");
+          icon.classList.add("fa-ellipsis-vertical");
+        });
+        background.forEach((back) => {
+          back.style.backgroundColor = "transparent";
+        });
+      }
 
-          trash.style.display = "inline";
-        }
-      });
+      if (event.target.classList.contains("taskElement")) {
+        const { taskIndex } = event.target.dataset;
+        const icon = mainList.querySelector(
+          `i[data-list-index="${taskIndex}"]`
+        );
 
-      list.addEventListener("change", (event) => {  
-        // if (!event.target.classList.contains("selected")){
-          list.classList.toggle("selected");
-          trash.style.display = "hide"
-        // }
-  
-      })
-
+        icon.classList.add("fa-trash-can");
+        icon.classList.remove("fa-ellipsis-vertical");
+        event.target.style.backgroundColor = "rgb(235, 235, 123)";
+        mainList.querySelector(
+          `li[data-list-index="${taskIndex}"]`
+        ).style.backgroundColor = "rgb(235, 235, 123)";
+      }
     });
-
-    
-
-    // inputs.forEach((list) => {
-    //   list.addEventListener("blur", (event) => {
-    //     if (event.target.classList.contains("taskElement")) {
-    //       const index = event.target.dataset.taskIndex;
-    //       const trash = document.querySelector(`.showTrash${index}`);
-
-    //       trash.style.display = "none"
-    //     }
-    //   });
-    // });
   }
 
   indexes() {
@@ -89,8 +85,8 @@ class TodoList {
   addRemoveBtnListeners() {
     mainList.addEventListener("click", (event) => {
       if (event.target.classList.contains("fa-trash-can")) {
-        const index = event.target.dataset.listIndex;
-        this.remove(index);
+        const { listIndex } = event.target.dataset;
+        this.remove(listIndex);
         localStorage.setItem("list", JSON.stringify(this.list));
         this.displayList();
       }
@@ -101,9 +97,9 @@ class TodoList {
     document.addEventListener("keyup", (event) => {
       if (event.code === "Enter") {
         if (event.target.classList.contains("taskElement")) {
-          const newText = event.target.value;
-          const index = event.target.dataset.taskIndex;
-          this.edit(index, newText);
+          const { value } = event.target;
+          const { taskIndex } = event.target.dataset;
+          this.edit(taskIndex, value);
           this.displayList();
         }
       }
