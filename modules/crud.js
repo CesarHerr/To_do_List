@@ -1,10 +1,10 @@
-import Todo from "./todo.js";
+import Todo from './todo.js';
 
-const mainList = document.querySelector(".tasks");
+const mainList = document.querySelector('.tasks');
 
 class TodoList {
   constructor() {
-    this.list = JSON.parse(localStorage.getItem("list")) || [];
+    this.list = JSON.parse(localStorage.getItem('list')) || [];
     this.enterEvent();
   }
 
@@ -12,18 +12,18 @@ class TodoList {
     const newTodo = new Todo(text);
     newTodo.index = this.list.length + 1;
     this.list.push(newTodo);
-    localStorage.setItem("list", JSON.stringify(this.list));
+    localStorage.setItem('list', JSON.stringify(this.list));
   }
 
   remove(index) {
     this.list.splice(index, 1);
     this.indexes();
-    localStorage.setItem("list", JSON.stringify(this.list));
+    localStorage.setItem('list', JSON.stringify(this.list));
   }
 
   edit(index, newText) {
     this.list[index].text = newText;
-    localStorage.setItem("list", JSON.stringify(this.list));
+    localStorage.setItem('list', JSON.stringify(this.list));
   }
 
   displayList() {
@@ -31,47 +31,46 @@ class TodoList {
       .map(
         (todo, index) => `
         <li class="taskElement_master" data-list-index="${index}">
-          <span >           
-          <input type="checkbox" class="checkbox" data-index="${index}" aria-label="checkbox">            
-          </input>           
+          <span >
+            <input type="checkbox" class="checkbox" data-index="${index}" aria-label="checkbox" required />         
             <input name="name${index}" class="taskElement " data-task-index="${index}" value="${todo.text}" aria-label="task element"/>           
           </span>  
           <i class="fa-solid fa-ellipsis-vertical icon" data-list-index="${index}"></i>   
         </li>
-      `
+      `,
       )
-      .join("");
+      .join('');
 
-    const inputs = document.querySelectorAll(".taskElement");
-    const iconBtn = document.querySelectorAll(".icon");
-    const background = document.querySelectorAll(".taskElement_master");
+    const inputs = document.querySelectorAll('.taskElement');
+    const iconBtn = document.querySelectorAll('.icon');
+    const background = document.querySelectorAll('.taskElement_master');
 
-    mainList.addEventListener("click", (event) => {
-      if (!event.target.classList.contains("fa-trash-can")) {
+    mainList.addEventListener('click', (event) => {
+      if (!event.target.classList.contains('fa-trash-can')) {
         inputs.forEach((input) => {
-          input.style.backgroundColor = "transparent";
+          input.style.backgroundColor = 'transparent';
         });
         iconBtn.forEach((icon) => {
-          icon.classList.remove("fa-trash-can");
-          icon.classList.add("fa-ellipsis-vertical");
+          icon.classList.remove('fa-trash-can');
+          icon.classList.add('fa-ellipsis-vertical');
         });
         background.forEach((back) => {
-          back.style.backgroundColor = "transparent";
+          back.style.backgroundColor = 'transparent';
         });
       }
 
-      if (event.target.classList.contains("taskElement")) {
+      if (event.target.classList.contains('taskElement')) {
         const { taskIndex } = event.target.dataset;
         const icon = mainList.querySelector(
-          `i[data-list-index="${taskIndex}"]`
+          `i[data-list-index="${taskIndex}"]`,
         );
 
-        icon.classList.add("fa-trash-can");
-        icon.classList.remove("fa-ellipsis-vertical");
-        event.target.style.backgroundColor = "rgb(235, 235, 123)";
+        icon.classList.add('fa-trash-can');
+        icon.classList.remove('fa-ellipsis-vertical');
+        event.target.style.backgroundColor = 'rgb(235, 235, 123)';
         mainList.querySelector(
-          `li[data-list-index="${taskIndex}"]`
-        ).style.backgroundColor = "rgb(235, 235, 123)";
+          `li[data-list-index="${taskIndex}"]`,
+        ).style.backgroundColor = 'rgb(235, 235, 123)';
       }
     });
   }
@@ -83,20 +82,20 @@ class TodoList {
   }
 
   addRemoveBtnListeners() {
-    mainList.addEventListener("click", (event) => {
-      if (event.target.classList.contains("fa-trash-can")) {
+    mainList.addEventListener('click', (event) => {
+      if (event.target.classList.contains('fa-trash-can')) {
         const { listIndex } = event.target.dataset;
         this.remove(listIndex);
-        localStorage.setItem("list", JSON.stringify(this.list));
+        localStorage.setItem('list', JSON.stringify(this.list));
         this.displayList();
       }
     });
   }
 
   enterEvent() {
-    document.addEventListener("keyup", (event) => {
-      if (event.code === "Enter") {
-        if (event.target.classList.contains("taskElement")) {
+    document.addEventListener('keyup', (event) => {
+      if (event.code === 'Enter') {
+        if (event.target.classList.contains('taskElement')) {
           const { value } = event.target;
           const { taskIndex } = event.target.dataset;
           this.edit(taskIndex, value);
@@ -107,20 +106,20 @@ class TodoList {
   }
 
   check() {
-    document.addEventListener("click", (e) => {
-      if (e.target.classList.contains("checkbox")) {
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('checkbox')) {
         const { index } = e.target.dataset;
-        const db = JSON.parse(localStorage.getItem("list"));
+        const db = JSON.parse(localStorage.getItem('list'));
 
         this.list[index].complete = !db[index].complete;
-        localStorage.setItem("list", JSON.stringify(this.list));
+        localStorage.setItem('list', JSON.stringify(this.list));
       }
     });
   }
 
   clearAllButton() {
-    const clearBtn = document.querySelector(".clear");
-    clearBtn.addEventListener("click", () => {
+    const clearBtn = document.querySelector('.clear');
+    clearBtn.addEventListener('click', () => {
       this.deleteChecked();
       window.location.reload();
     });
@@ -128,13 +127,13 @@ class TodoList {
 
   deleteChecked() {
     this.list = this.list.filter((element) => element.complete !== true);
-    localStorage.setItem("list", JSON.stringify(this.list));
+    localStorage.setItem('list', JSON.stringify(this.list));
   }
 
   CompletedFalse() {
     this.list.forEach((todo) => {
       todo.complete = false;
-      localStorage.setItem("list", JSON.stringify(this.list));
+      localStorage.setItem('list', JSON.stringify(this.list));
     });
   }
 }
