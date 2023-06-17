@@ -34,9 +34,32 @@ h1 {
 }
 
 .add {
-  width: 100%;
-  border: solid 1px rgb(200, 187, 187);
+  width: 95%;
+  border: none;
   height: 40px;
+}
+
+.fa-turn-down {
+  font-size: 2rem;
+  color: gray;
+  padding: 1rem;
+}
+
+.fa-turn-down:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.fa-turn-down:active {
+  color: gray;
+}
+
+div {
+  display: flex;
+}
+
+hr {
+  width: 100%;
 }
 
 li {
@@ -51,6 +74,7 @@ li {
 
 span {
   width: 100%;
+  display: flex;
 }
 
 .add::placeholder {
@@ -60,6 +84,10 @@ span {
 
 .check {
   padding-left: 1em;
+}
+
+.checkbox {
+  min-width: 20px;
 }
 
 p {
@@ -89,7 +117,9 @@ p {
 }
 
 .fa-trash-can {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  width: 80px;
+  text-align: center;
 }
 
 .remove-btn:hover,
@@ -101,7 +131,7 @@ p {
 .taskElement {
   height: 30px;
   font-size: 1.2rem;
-  width: 90%;
+  width: 97%;
   border: 0;
   margin-left: 5px;
   outline: 0;
@@ -111,4 +141,16 @@ p {
   text-decoration: line-through;
   font-size: 1rem;
   color: red;
+}
+
+.fa-ellipsis-vertical {
+  cursor: move;
+  cursor: grab;
+  font-size: 2rem;
+  width: 80px;
+  text-align: center;
+}
+
+.fa-ellipsis-vertical:active {
+  cursor: grabbing;
 }

@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/2e46d3026c.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/2e46d3026c.js"
+      crossorigin="anonymous"
+    ></script>
     <title>To do List</title>
-</head>
-<body>
-    <section class="container"> 
-        <header class="header">
-            <h1>Today´s To Do</h1>
-            <i class="fa-solid fa-arrows-rotate fa-rotate-90"></i>
-        </header>
-        <label for="text" aria-labelledby="text"></label>
-        <input class="add" type="text" name="text" placeholder="Add to your list...">
-        <ul class="tasks">  
-            
-            <!-- To do list here -->
-            
+  </head>
+  <body>
+    <section class="container">
+      <header class="header">
+        <h1>Today´s To Do</h1>
+        <i class="fa-solid fa-arrows-rotate fa-rotate-90"></i>
+      </header>
+      <div>
+        <input
+          class="add"
+          type="text"
+          name="text"
+          placeholder="Add to your list..."
+          aria-label="task input"
+        />
+        <i class="fa-solid fa-turn-down fa-rotate-90"></i>
+      </div>
+      <hr />
+      <form>
+        <ul class="tasks">
+          <!-- To do list here -->
         </ul>
-        <button class="clear">Clear all completed</button>       
+      </form>
+      <button class="clear">Clear all completed</button>
     </section>
-</body>
+  </body>
 </html>
