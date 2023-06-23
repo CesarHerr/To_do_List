@@ -4,7 +4,7 @@ const mainList = document.querySelector('.tasks');
 
 class TodoList {
   constructor() {
-    this.list = JSON.parse(localStorage.getItem('list')) || [];
+    this.list = JSON.parse(localStorage.getItem('list')) ?? [];
     this.enterEvent();
   }
 
@@ -30,7 +30,7 @@ class TodoList {
     mainList.innerHTML = this.list
       .map(
         (todo, index) => `
-        <li class="taskElement_master" data-list-index="${index}">
+        <li class="taskElement_master" data-task-index="${index}" data-id="${index + 1}">
           <span >
             <input type="checkbox" class="checkbox" data-index="${index}" aria-label="checkbox" required />         
             <input name="name${index}" class="taskElement " data-task-index="${index}" value="${todo.text}" aria-label="task element"/>           
@@ -69,7 +69,7 @@ class TodoList {
         icon.classList.remove('fa-ellipsis-vertical');
         event.target.style.backgroundColor = 'rgb(235, 235, 123)';
         mainList.querySelector(
-          `li[data-list-index="${taskIndex}"]`,
+          `li[data-task-index="${taskIndex}"]`,
         ).style.backgroundColor = 'rgb(235, 235, 123)';
       }
     });
@@ -127,7 +127,9 @@ class TodoList {
 
   deleteChecked() {
     this.list = this.list.filter((element) => element.complete !== true);
+    this.indexes();
     localStorage.setItem('list', JSON.stringify(this.list));
+    
   }
 
   CompletedFalse() {
