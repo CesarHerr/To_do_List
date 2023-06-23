@@ -129,7 +129,6 @@ class TodoList {
     this.list = this.list.filter((element) => element.complete !== true);
     this.indexes();
     localStorage.setItem('list', JSON.stringify(this.list));
-    
   }
 
   CompletedFalse() {
